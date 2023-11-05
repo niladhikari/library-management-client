@@ -1,16 +1,19 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Rating from "react-rating-stars-component";
+// import { Rating } from "@material-tailwind/react";
 
 const DiscoverCards = ({ book }) => {
   const { book_name, img, author_name, price } = book;
 
-  const [rating, setRating] = useState(book.rating); // Initialize rating with the value from the book object
-
+  const [rating, setRating] = useState(book.rating); 
   const handleRatingChange = (newRating) => {
-    // Update the rating when it changes
     setRating(newRating);
   };
+
+
+ 
+
 
   return (
     <div>
@@ -38,6 +41,7 @@ const DiscoverCards = ({ book }) => {
               isHalf={true}
               onChange={handleRatingChange}
             />
+            {/* <Rating value={rating} /> */}
           </div>
           <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900 text-green-500">
             {price}
