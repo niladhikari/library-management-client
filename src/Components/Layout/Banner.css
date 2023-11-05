@@ -1,0 +1,21 @@
+.background{
+    background-image: url("https://i.ibb.co/W5Xhwhg/oldbooks.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+.background2{
+    background-image: url("https://i.ibb.co/syn9wKh/Best-Reviewed-Books.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
+.background3{
+    background-image: url("https://i.ibb.co/SBCFvCL/bg-books.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
