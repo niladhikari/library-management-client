@@ -1,0 +1,44 @@
+[
+    {
+        "book_name": "The Great Gatsby",
+        "img"       :"https://i.ibb.co/4FvwxG9/The-Great-Gatsby.jpg",
+        "author_name": "F. Scott Fitzgerald",
+        "rating": 4.5,
+        "price": 12.99
+    },
+    {
+        "book_name": "To Kill a Mockingbird",
+        "img"       :"https://i.ibb.co/5hLWBJh/kill.jpg",
+        "author_name": "Harper Lee",
+        "rating": 4.7,
+        "price": 14.99
+    },
+    {
+        "book_name": "The Catcher in the Rye",
+        "img"       :"https://i.ibb.co/n6V0gjQ/The-Catcher-in-the.webp",
+        "author_name": "J.D. Salinger",
+        "rating": 4.3,
+        "price": 11.99
+    },
+    {
+        "book_name": "Pride and Prejudice",
+        "img"       :"https://i.ibb.co/Brxt0DW/Pride-and-Prejudice.jpg",
+        "author_name": "Jane Austen",
+        "rating": 3.7,
+        "price": 13.99
+    },
+    {
+        "book_name": "1984",
+        "img"       :"https://i.ibb.co/qMVNc98/920.jpg",
+        "author_name": "George Orwell",
+        "rating": 4.4,
+        "price": 10.99
+    },
+    {
+        "book_name": "The Hobbit",
+        "img"       :"https://i.ibb.co/0K7x5X5/5907.jpg",
+        "author_name": "J.R.R. Tolkien",
+        "rating": 4.8,
+        "price": 15.99
+    }
+]

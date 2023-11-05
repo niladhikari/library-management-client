@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const DisplayCategory = ({ book }) => {
-  console.log(book);
   const { _id,category_name, img_url } = book;
 
   return (

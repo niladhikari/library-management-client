@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import DisplayCategory from "./DisplayCategory";
 import Banner from "../../Components/Layout/Banner";
+import Discover from "../../Components/Discover";
 
 const Home = () => {
   const categoryBook = useLoaderData();
@@ -20,6 +21,12 @@ const Home = () => {
         {categoryBook.map((book) => (
           <DisplayCategory key={book._id} book={book}></DisplayCategory>
         ))}
+      </div>
+
+      <div>
+        <h2 className="text-center mt-20 text-3xl  md:text-5xl font-bold text-teal-500 ">Discover Your Next Book</h2>
+        <p className="text-center px-2 md:px-0 mt-4 text-teal-500 font-semibold mb-10">Books transport us to worlds unknown, where imagination knows no bounds. They are windows to the human experience, offering wisdom, wonder, and infinite journeys.</p>
+        <Discover></Discover>
       </div>
     </div>
   );
