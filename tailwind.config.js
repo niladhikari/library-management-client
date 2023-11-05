@@ -8,8 +8,8 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")],
-  daisyui: {
-    themes: ['emerald'], 
-  },
+  // daisyui: {
+  //   themes: ['emerald','dark'], 
+  // },
 }
 
