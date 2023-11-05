@@ -12,9 +12,6 @@ const DiscoverCards = ({ book }) => {
   };
 
 
- 
-
-
   return (
     <div>
       <div className=" flex flex-col text-gray-700 bg-white shadow-md rounded-xl">
@@ -41,7 +38,7 @@ const DiscoverCards = ({ book }) => {
               isHalf={true}
               onChange={handleRatingChange}
             />
-            {/* <Rating value={rating} /> */}
+       
           </div>
           <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900 text-green-500">
             {price}

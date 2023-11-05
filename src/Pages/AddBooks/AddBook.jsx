@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import useAxios from './../../Hooks/useAxios';
 
 const AddBook = () => {
-  const [selectedBrand, setSelectedBrand] = useState("");
+  const [selectedBook, setSelectedBook] = useState("");
   const axios = useAxios();
   const handleAddBook = (event) => {
     event.preventDefault();
@@ -11,7 +11,7 @@ const AddBook = () => {
     const form = event.target;
 
     const name = form.name.value;
-    const brandName = selectedBrand;
+    const CategoryName = selectedBook;
     const type = form.type.value;
     const quantity = form.quantity.value;
     const rating = form.rating.value;
@@ -20,7 +20,7 @@ const AddBook = () => {
 
     const myBooks = {
       name,
-      brandName,
+      CategoryName,
       type,
       quantity,
       rating,
@@ -73,16 +73,16 @@ const AddBook = () => {
               <label className="input-group">
                 <select
                   className="select select-bordered w-full"
-                  value={selectedBrand}
-                  onChange={(e) => setSelectedBrand(e.target.value)}
+                  value={selectedBook}
+                  onChange={(e) => setSelectedBook(e.target.value)}
                 >
                   <option disabled value="">
                     Select Category
                   </option>
-                  <option value="Apple">Fiction</option>
-                  <option value="Samsung">Science</option>
-                  <option value="Sony">History</option>
-                  <option value="Google">Mystery</option>
+                  <option value="Fiction">Fiction</option>
+                  <option value="Science">Science</option>
+                  <option value="History">History</option>
+                  <option value="Mystery">Mystery</option>
                 </select>
               </label>
             </div>

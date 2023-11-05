@@ -3,6 +3,7 @@
 import { Link, NavLink } from "react-router-dom";
 // import useAuth from "./../../../Hook/useAuth";
 import { useEffect, useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 const links = (
   <>
@@ -22,8 +23,7 @@ const links = (
 );
 
 const Navbar = () => {
-//   const { user, userSignOut } = useAuth();
-const user = false;
+  const { user, userSignOut } = useAuth();
 
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -41,19 +41,19 @@ const user = false;
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
 
-//   const handleLogout = () => {
-//     userSignOut()
-//       .then((res) => {
-//         console.log(res);
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   };
+  const handleLogout = () => {
+    userSignOut()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div>
-      <div className="md:mb-6 lg:mb-5">
+      <div className="md:mb-6 lg:mb-20 mt-3">
         <div className="navbar max-w-[1300px] mx-auto justify-between  px-5 lg:px-0">
           <div className="navbar-start mt-3">
             <div className="dropdown">
@@ -148,7 +148,7 @@ const user = false;
                   </li>
                   <li>
                     <button
-                      onClick={'handleLogout'}
+                      onClick={handleLogout}
                       className="btn btn-sm  btn-ghost font-bold text-red-500"
                     >
                       Logout
