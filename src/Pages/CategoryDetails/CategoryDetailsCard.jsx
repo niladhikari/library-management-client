@@ -36,7 +36,6 @@ const CategoryDetailsCard = ({ book }) => {
           />
 
           <div className="card-actions mt-2">
-            {/* to={`/details/${_id}`} */}
             <Link to={`/detailsData/${_id}`}>
               <button className="btn btn-primary">Details</button>
             </Link>

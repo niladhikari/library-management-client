@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
+import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
-import useAxios from "./../../Hooks/useAxios";
 
-const AddBook = () => {
+const UpdateBook = () => {
   const [selectedBook, setSelectedBook] = useState("");
+  const updateBook = useLoaderData();
   const axios = useAxios();
+  console.log(Object.keys(updateBook).join(","));
+  const { _id, name, CategoryName, type, rating, photo, content } = updateBook;
+
+  useEffect(() => {
+    setSelectedBook(CategoryName);
+  }, [CategoryName]);
+
   const handleAddBook = (event) => {
     event.preventDefault();
 
@@ -13,9 +22,7 @@ const AddBook = () => {
     const name = form.name.value;
     const CategoryName = selectedBook;
     const type = form.type.value;
-    const quantity = form.quantity.value;
     const rating = form.rating.value;
-    const details = form.details.value;
     const content = form.content.value;
     const photo = form.photo.value;
 
@@ -23,25 +30,40 @@ const AddBook = () => {
       name,
       CategoryName,
       type,
-      quantity,
       rating,
-      details,
       content,
       photo,
     };
     console.log(myBooks);
 
-    axios.post("/books", myBooks).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
+    axios
+      .put(`/books/${_id}`, myBooks)
+      .then(() => {
         Swal.fire({
           title: "Success!",
-          text: "Book Added Successfully",
+          text: "Book updated successfully",
           icon: "success",
           confirmButtonText: "Cool",
         });
-      }
-    });
+      })
+      .catch(() => {
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to update the book",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      });
+
+    //     const updateBooks = async () => {
+    //         const res = await axios.get("/books",myBooks);
+    //         return res;
+    //       };
+
+    //       const { data, } = useQuery({
+    //         queryKey: ["update"],
+    //         queryFn: updateBooks,
+    //       });
   };
 
   return (
@@ -60,6 +82,7 @@ const AddBook = () => {
                 <input
                   type="text"
                   name="name"
+                  defaultValue={name}
                   placeholder="Book Name"
                   className="input input-bordered w-full"
                 />
@@ -73,6 +96,7 @@ const AddBook = () => {
                 <select
                   className="select select-bordered w-full"
                   value={selectedBook}
+                  defaultValue={CategoryName}
                   onChange={(e) => setSelectedBook(e.target.value)}
                 >
                   <option disabled value="">
@@ -96,6 +120,7 @@ const AddBook = () => {
                 <input
                   type="text"
                   name="type"
+                  defaultValue={type}
                   placeholder="Author Name"
                   className="input input-bordered w-full"
                 />
@@ -103,44 +128,14 @@ const AddBook = () => {
             </div>
             <div className="form-control md:w-1/2 md:ml-4 mt-8 md:mt-0">
               <label className="label">
-                <span className="label-text font-semibold">
-                  Quantity of Book
-                </span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="quantity"
-                  placeholder="Book Quantity"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-          </div>
-
-          <div className="md:flex mb-8">
-            <div className="form-control md:w-1/2">
-              <label className="label">
                 <span className="label-text font-semibold">Rating</span>
               </label>
               <label className="input-group">
                 <input
                   type="text"
                   name="rating"
+                  defaultValue={rating}
                   placeholder="Rating"
-                  className="input input-bordered w-full"
-                />
-              </label>
-            </div>
-            <div className="form-control md:w-1/2 md:ml-4 mt-8 md:mt-0">
-              <label className="label">
-                <span className="label-text font-semibold">Book Details</span>
-              </label>
-              <label className="input-group">
-                <input
-                  type="text"
-                  name="details"
-                  placeholder="Book Details"
                   className="input input-bordered w-full"
                 />
               </label>
@@ -150,15 +145,16 @@ const AddBook = () => {
           <div className="mb-8">
             <div className="form-control w-full">
               <label className="label">
-                <span className="label-text font-semibold">
-                  About Book
-                </span>
+                <span className="label-text font-semibold">About Book</span>
               </label>
               <label className="input-group">
-                <textarea 
-                name="content" 
-                placeholder="Type About Book"  
-                rows={10} cols={60}/>
+                <textarea
+                  name="content"
+                  placeholder="Type About Book"
+                  defaultValue={content}
+                  rows={10}
+                  cols={60}
+                />
               </label>
             </div>
           </div>
@@ -174,6 +170,7 @@ const AddBook = () => {
                 <input
                   type="text"
                   name="photo"
+                  defaultValue={photo}
                   placeholder="Photo URL"
                   className="input input-bordered w-full "
                 />
@@ -182,7 +179,7 @@ const AddBook = () => {
           </div>
           <input
             type="submit"
-            value="Add Book"
+            value="Update Book"
             className="btn btn-block font-bold bg-blue-200"
           />
         </form>
@@ -191,4 +188,4 @@ const AddBook = () => {
   );
 };
 
-export default AddBook;
+export default UpdateBook;

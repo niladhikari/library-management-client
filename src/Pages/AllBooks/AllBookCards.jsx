@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Rating from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 const AllBookCards = ({ book }) => {
-  const { _id, name, CategoryName, type, photo } = book;
+  const { _id,  name, CategoryName, type, photo } = book;
 
   const [rating, setRating] = useState(book.rating);
 
@@ -40,9 +41,7 @@ const AllBookCards = ({ book }) => {
         </div>
       </div>
       <div className="flex items-center justify-center mb-4">
-        <button className="p-3 bg-blue-300 rounded-md text-sm font-bold">
-          Update Book
-        </button>
+      <Link to={`/update/${_id}`}><button className="btn btn-primary">Update</button></Link>
       </div>
     </div>
   );
