@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const DisplayCategory = ({ book }) => {
-  const { _id,category_name, img_url } = book;
+  const { _id,CategoryName, img_url } = book;
+
 
   return (
     <div>
@@ -16,7 +17,7 @@ const DisplayCategory = ({ book }) => {
             />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title text-2xl font-bold">{category_name}</h2>
+            <h2 className="card-title text-2xl font-bold">{CategoryName}</h2>
           </div>
         </div>
       </Link>
