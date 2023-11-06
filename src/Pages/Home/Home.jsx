@@ -6,7 +6,7 @@ import Authors from "../../Components/Authors";
 
 const Home = () => {
   const categoryBook = useLoaderData();
-  console.log(categoryBook);
+
   return (
     <div className="max-w-7xl mx-auto">
       <div>

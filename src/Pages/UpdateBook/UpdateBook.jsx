@@ -34,7 +34,7 @@ const UpdateBook = () => {
       content,
       photo,
     };
-    console.log(myBooks);
+
 
     axios
       .put(`/books/${_id}`, myBooks)
@@ -70,7 +70,7 @@ const UpdateBook = () => {
     <div className="bg-[#F4F3F0]">
       <div className=" p-10 md:p-24 max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold text-center mb-5">
-          Add a Books
+          Update a Books
         </h2>
         <form onSubmit={handleAddBook}>
           <div className="md:flex mb-8">

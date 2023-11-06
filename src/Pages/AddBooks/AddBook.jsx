@@ -29,7 +29,7 @@ const AddBook = () => {
       content,
       photo,
     };
-    console.log(myBooks);
+
 
     axios.post("/books", myBooks).then((res) => {
       console.log(res.data);

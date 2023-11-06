@@ -4,10 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../Hooks/useAuth";
+import useAxios from "../Hooks/useAxios";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { createUser, userUpdateProfile } = useAuth();
+  const axios = useAxios();
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -40,7 +42,14 @@ const Register = () => {
             navigate("/");
           }, 2000);
         });
-        // const user = { email };
+
+
+        const user = { email , name };
+
+         axios.post('http://localhost:5000/user',user)
+         .then(res=>{
+          console.log(res.data);
+         })
         // fetch("https://brand-shop-server-vert.vercel.app/user", {
         //   method: "POST",
         //   headers: {
