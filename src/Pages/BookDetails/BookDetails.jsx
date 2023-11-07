@@ -7,8 +7,9 @@ import { useState } from "react";
 const BookDetails = () => {
   const { user } = useAuth();
   const infoBook = useLoaderData();
-  const [buttonDisable,setButtonDisable] = useState(false);
-  const { _id, name, quantity, CategoryName, type, details, photo } = infoBook;
+  const [buttonDisable, setButtonDisable] = useState(false);
+  const { _id, name, CategoryName, type, details, photo } = infoBook;
+  const [quantity, setQuantity] = useState(parseInt(infoBook.quantity));
 
   const bookInfo = {
     id: _id,
@@ -16,7 +17,7 @@ const BookDetails = () => {
     CategoryName,
     type,
     photo,
-    quantity: parseInt(quantity),
+    quantity: parseInt(infoBook.quantity),
     email: user?.email,
     names: user?.displayName,
   };
@@ -34,26 +35,28 @@ const BookDetails = () => {
           "Content-Type": "application/json",
         },
       })
-      
-      .then((response) => {
-        if (response.ok) {
-          // Handle successful response here
-          return response.json();
-        } else {
-          // Handle error response here
-          throw new Error("Network response was not ok");
-        }
-      })
-      .then((data) => {
-        if (!data.message && data.quantity == 0) {
-          setButtonDisable(true)
-        }
-        // Process the data from the server as needed
-        console.log(data);
-      })
-        
+        .then((response) => {
+          if (response.ok) {
+            // Handle successful response here
+            return response.json();
+          } else {
+            // Handle error response here
+            throw new Error("Network response was not ok");
+          }
+        })
+        .then((data) => {
+          if (!data.message && data.quantity == 0) {
+            setButtonDisable(true);
+          }
+          // Process the data from the server as needed
+          console.log(data);
+        });
     }
   }, [_id, quantity, user.email]);
+
+  const handleBorrow = () => {
+    setQuantity((prevQuantity) => prevQuantity - 1);
+  };
 
   return (
     <div className="max-w-7xl mx-auto my-20">
@@ -68,9 +71,15 @@ const BookDetails = () => {
             Book : {parseInt(quantity)}
           </p>
           <div className="flex gap-2">
-            {user?.email && (
+            {/* {user?.email && (
               <button disabled = {buttonDisable? true:false}>
                 <BorrowModal bookInfo={bookInfo}></BorrowModal>
+              </button>
+            )} */}
+
+            {user?.email && (
+              <button disabled={buttonDisable || quantity <= 0}>
+                <BorrowModal bookInfo={bookInfo} onBorrow={handleBorrow} />
               </button>
             )}
             <Link to={`/read/${_id}`}>
@@ -87,4 +96,3 @@ const BookDetails = () => {
 };
 
 export default BookDetails;
-

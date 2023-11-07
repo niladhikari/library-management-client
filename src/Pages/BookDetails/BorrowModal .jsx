@@ -3,8 +3,8 @@ import useAxios from "../../Hooks/useAxios";
 
 
 
-// eslint-disable-next-line react/prop-types
-const BorrowModal = ({ bookInfo }) => {
+// eslint-disable-next-line react/prop-types, no-unused-vars
+const BorrowModal = ({ bookInfo,onBorrow  }) => {
   const [modalVisible, setModalVisible] = useState(false);
   // eslint-disable-next-line react/prop-types
   const { id, name, quantity, CategoryName, type, photo, email, names } =
@@ -36,6 +36,9 @@ const BorrowModal = ({ bookInfo }) => {
 
     axios.post("/borrow", allIfo).then((res) => {
       console.log(res.data);
+      if (res.data.insertedCount === 1) {
+        onBorrow();
+      }
     });
 
     console.log(allIfo);

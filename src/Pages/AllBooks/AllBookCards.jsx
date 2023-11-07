@@ -3,7 +3,7 @@ import { useState } from "react";
 import Rating from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 const AllBookCards = ({ book }) => {
-  const { _id,  name, CategoryName,quantity, type, photo } = book;
+  const { _id,  name, CategoryName, type, photo } = book;
 
   const [rating, setRating] = useState(book.rating);
 
@@ -11,7 +11,7 @@ const AllBookCards = ({ book }) => {
     setRating(newRating);
   };
   return (
-    <div className="relative flex max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+    <div className="relative flex mx-4 lg:max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
       <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
         <img
           className="object-cover w-full h-[350px]"
