@@ -41,7 +41,7 @@ const DiscoverCards = ({ book }) => {
        
           </div>
           <p className="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900 text-green-500">
-            {price}
+            $ {price}
           </p>
         </div>
       </div>

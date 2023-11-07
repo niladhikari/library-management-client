@@ -6,7 +6,7 @@ import AllBookCards from "./AllBookCards";
 const AllBooks = () => {
     const axios = useAxios();
     const getBooks = async () => {
-      const res = await axios.get("/books");
+      const res = await axios.get("/books",{withCredentials:true});
       return res;
     };
 

@@ -11,12 +11,14 @@ import CategoryDetails from "../Pages/CategoryDetails/CategoryDetails";
 import BookDetails from "../Pages/BookDetails/BookDetails";
 import UpdateBook from "../Pages/UpdateBook/UpdateBook";
 import ReadBook from "../Pages/ReadBook/ReadBook";
+import Error from "../Pages/Error/Error";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <Error></Error>,
       children:[
         {
             path: "/",

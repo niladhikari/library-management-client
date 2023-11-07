@@ -3,7 +3,7 @@ import { useState } from "react";
 import Rating from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 const AllBookCards = ({ book }) => {
-  const { _id,  name, CategoryName, type, photo } = book;
+  const { _id,  name, CategoryName,quantity, type, photo } = book;
 
   const [rating, setRating] = useState(book.rating);
 

@@ -31,7 +31,8 @@ const AddBook = () => {
     };
 
 
-    axios.post("/books", myBooks).then((res) => {
+    axios.post("/books", myBooks,{ withCredentials: true })
+    .then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
