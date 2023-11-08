@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="mt-20">
+      <div className="">
         <Banner></Banner>
       </div>
       <h2 className="text-center mt-20 text-3xl  md:text-5xl font-bold text-teal-500">
