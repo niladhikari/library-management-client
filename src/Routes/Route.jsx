@@ -23,22 +23,22 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home></Home>,
-            loader: ()=> fetch('http://localhost:5000/bookCategory')
+            loader: ()=> fetch('https://library-management-server-three.vercel.app/bookCategory')
         },
         {   
             path: '/details/:id',
             element: <CategoryDetails></CategoryDetails>,
-            loader: ({ params }) => fetch(`http://localhost:5000/bookCategory/${params.id}`)
+            loader: ({ params }) => fetch(`https://library-management-server-three.vercel.app/bookCategory/${params.id}`)
         },
         {   
             path: '/detailsData/:id',
             element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
+            loader: ({ params }) => fetch(`https://library-management-server-three.vercel.app/books/${params.id}`)
         },
         {   
             path: '/read/:id',
             element: <PrivateRoute><ReadBook></ReadBook></PrivateRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
+            loader: ({ params }) => fetch(`https://library-management-server-three.vercel.app/books/${params.id}`)
         },
         {
             path: "/addbooks",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         {   
             path: '/update/:id',
             element: <PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>,
-            loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`)
+            loader: ({ params }) => fetch(`https://library-management-server-three.vercel.app/books/${params.id}`)
         },
         {
             path: "/borrowedbooks",

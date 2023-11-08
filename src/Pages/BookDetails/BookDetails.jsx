@@ -30,7 +30,7 @@ const BookDetails = () => {
   //       email: user.email,
   //     }).toString();
 
-  //     fetch(`http://localhost:5000/borrow?${queryParams}`, {
+  //     fetch(`https://library-management-server-three.vercel.app/borrow?${queryParams}`, {
   //       method: "GET",
   //       headers: {
   //         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const BookDetails = () => {
     if (user?.email) {
       const queryParams = `id=${_id}&email=${user.email}`;
 
-      fetch(`http://localhost:5000/borrow?${queryParams}`, {
+      fetch(`https://library-management-server-three.vercel.app/borrow?${queryParams}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

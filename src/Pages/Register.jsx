@@ -46,7 +46,7 @@ const Register = () => {
 
         const user = { email , name };
 
-         axios.post('http://localhost:5000/user',user)
+         axios.post('https://library-management-server-three.vercel.app/user',user)
          .then(res=>{
           console.log(res.data);
          })

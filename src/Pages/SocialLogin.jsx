@@ -22,7 +22,7 @@ const SocialLogin = () => {
           navigate("/");
         }, 2000);
 
-        axios.post('http://localhost:5000/user',users)
+        axios.post('https://library-management-server-three.vercel.app/user',users)
         .then(res=>{
          console.log(res.data);
         })
