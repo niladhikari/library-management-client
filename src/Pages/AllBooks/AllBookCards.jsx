@@ -3,10 +3,10 @@ import { useState } from "react";
 import Rating from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 const AllBookCards = ({ book }) => {
-  const { _id,  name, CategoryName, type, photo } = book;
+  const { _id, name, CategoryName, type, photo } = book;
 
-  const [rating, setRating] = useState(book.rating);
-
+  const [rating, setRating] = useState(parseFloat(book.rating));
+  // console.log({ book, rating, x: typeof rating });
   const handleRatingChange = (newRating) => {
     setRating(newRating);
   };
@@ -41,7 +41,9 @@ const AllBookCards = ({ book }) => {
         </div>
       </div>
       <div className="flex items-center justify-center mb-4">
-      <Link to={`/update/${_id}`}><button className="btn btn-primary">Update</button></Link>
+        <Link to={`/update/${_id}`}>
+          <button className="btn btn-primary">Update</button>
+        </Link>
       </div>
     </div>
   );

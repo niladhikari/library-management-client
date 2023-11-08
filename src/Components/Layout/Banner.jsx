@@ -18,7 +18,7 @@ const Banner = () => {
     onSlideChange={() => console.log('slide change')}
     >
       <SwiperSlide >
-        <div className="mt-6 lg:mt-1 max-w-[1300px] mx-auto background py-4 lg:py-0 lg:h-[80vh] grid justify-center items-center">
+        <div className="mt-6 lg:mt-1 max-w-[1300px] z-0 mx-auto background py-4 lg:py-0 lg:h-[80vh] grid justify-center items-center">
           <div className="text-center px-6 text-white">
             <p className="text-2xl font-semibold mb-3">Choose Your Books!</p>
              <h2 className="text-center text-xl md:text-6xl font-bold  md:mb-0">
@@ -29,7 +29,7 @@ const Banner = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="mt-6 lg:mt-1 max-w-[1300px] mx-auto background2 py-4 lg:py-0 lg:h-[80vh] grid justify-center items-center">
+        <div className="mt-6 lg:mt-1 max-w-[1300px] z-0 mx-auto background2 py-4 lg:py-0 lg:h-[80vh] grid justify-center items-center">
           <div className="text-center px-6 text-white">
             <p className="text-2xl font-semibold mb-3">Choose Your Books!</p>
              <h2 className="text-center text-xl md:text-6xl font-bold  md:mb-0">
@@ -40,7 +40,7 @@ const Banner = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="mt-6 lg:mt-1 max-w-[1300px] mx-auto background3 py-4 lg:py-0 lg:h-[80vh] grid justify-center items-center">
+        <div className="mt-6 lg:mt-1 max-w-[1300px] z-0 mx-auto background3 py-4 lg:py-0 lg:h-[80vh] grid justify-center items-center">
           <div className="text-center px-6 text-white">
             <p className="text-2xl font-semibold mb-3">Choose Your Books!</p>
              <h2 className="text-center text-xl md:text-6xl font-bold  md:mb-0">
