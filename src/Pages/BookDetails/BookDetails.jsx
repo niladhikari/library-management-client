@@ -22,12 +22,41 @@ const BookDetails = () => {
     names: user?.displayName,
   };
 
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     const queryParams = new URLSearchParams({
+  //       id: _id,
+  //       email: user.email,
+  //     }).toString();
+
+  //     fetch(`http://localhost:5000/borrow?${queryParams}`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //       .then((response) => {
+  //         if (response.ok) {
+
+  //           return response.json();
+  //         } else {
+
+  //           throw new Error("Network response was not ok");
+  //         }
+  //       })
+  //       .then((data) => {
+  //         if (!data.message) {
+  //           setButtonDisable(true);
+  //         }
+
+  //         console.log(data);
+  //       });
+  //   }
+  // }, [_id, quantity, user.email]);
+
   useEffect(() => {
     if (user?.email) {
-      const queryParams = new URLSearchParams({
-        id: _id,
-        email: user.email,
-      }).toString();
+      const queryParams = `id=${_id}&email=${user.email}`;
 
       fetch(`http://localhost:5000/borrow?${queryParams}`, {
         method: "GET",
@@ -37,22 +66,19 @@ const BookDetails = () => {
       })
         .then((response) => {
           if (response.ok) {
-            // Handle successful response here
             return response.json();
           } else {
-            // Handle error response here
             throw new Error("Network response was not ok");
           }
         })
         .then((data) => {
-          if (!data.message && data.quantity == 0) {
+          if (!data.message ) {
             setButtonDisable(true);
           }
-          // Process the data from the server as needed
           console.log(data);
         });
     }
-  }, [_id, quantity, user.email]);
+  }, [_id, quantity, user?.email]);
 
   const handleBorrow = () => {
     setQuantity((prevQuantity) => prevQuantity - 1);
