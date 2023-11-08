@@ -10,6 +10,7 @@ const BookDetails = () => {
   const [buttonDisable, setButtonDisable] = useState(false);
   const { _id, name, CategoryName, type, details, photo } = infoBook;
   const [quantity, setQuantity] = useState(parseInt(infoBook.quantity));
+  const [borrowed, setBorrowed] = useState(false);
 
   const bookInfo = {
     id: _id,
@@ -81,7 +82,11 @@ const BookDetails = () => {
   }, [_id, quantity, user?.email]);
 
   const handleBorrow = () => {
-    setQuantity((prevQuantity) => prevQuantity - 1);
+    if (!borrowed) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+      setBorrowed(true);
+  
+    }
   };
 
   return (
@@ -105,7 +110,8 @@ const BookDetails = () => {
 
             {user?.email && (
               <button disabled={buttonDisable || quantity <= 0}>
-                <BorrowModal bookInfo={bookInfo} onBorrow={handleBorrow} />
+                <BorrowModal bookInfo={bookInfo} onBorrow={handleBorrow} 
+                updateQuantity={setQuantity}/>
               </button>
             )}
             <Link to={`/read/${_id}`}>

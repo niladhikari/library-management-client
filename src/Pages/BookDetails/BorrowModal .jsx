@@ -3,7 +3,7 @@ import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-const BorrowModal = ({ bookInfo, onBorrow }) => {
+const BorrowModal = ({ bookInfo, onBorrow, borrowed, updateQuantity }) => {
   const [modalVisible, setModalVisible] = useState(false);
   // eslint-disable-next-line react/prop-types
   const { id, name, quantity, CategoryName, type, photo, email, names } =
@@ -40,11 +40,12 @@ const BorrowModal = ({ bookInfo, onBorrow }) => {
       if (res.data.insertedId) {
         Swal.fire({
           title: "Success!",
-          text: "Book Added Successfully",
+          text: "Book Borrow Successfully",
           icon: "success",
           confirmButtonText: "Cool",
         });
-        location.reload();
+        const updatedQuantity = quantity - 1; 
+        updateQuantity(updatedQuantity);
       }
     });
 

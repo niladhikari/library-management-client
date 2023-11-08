@@ -17,7 +17,7 @@ const Banner = () => {
     onSwiper={(swiper) => console.log(swiper)}
     onSlideChange={() => console.log('slide change')}
     >
-      <SwiperSlide>
+      <SwiperSlide >
         <div className="mt-6 lg:mt-1 max-w-[1300px] mx-auto background py-4 lg:py-0 lg:h-[80vh] grid justify-center items-center">
           <div className="text-center px-6 text-white">
             <p className="text-2xl font-semibold mb-3">Choose Your Books!</p>

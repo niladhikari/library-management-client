@@ -1,6 +1,6 @@
 const Authors = () => {
   return (
-    <div className="grid lg:grid-cols-4 justify-center items-center gap-10">
+    <div className="grid lg:grid-cols-4 mx-4 lg:mx-0 items-center gap-10">
       <div className="relative grid h-[30rem] w-full  flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
         <div className="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://i.ibb.co/whNGgKg/Amy-Stevens.jpg')] bg-cover bg-clip-border bg-center text-gray-700 shadow-none">
           <div className="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
