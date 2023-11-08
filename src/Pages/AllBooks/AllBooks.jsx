@@ -39,7 +39,7 @@ const AllBooks = () => {
       <div className="flex justify-center">
         <button
           onClick={() => setShowAvailableBooks(!showAvailableBooks)}
-          className="bg-green-500 p-3 text-center rounded-lg"
+          className="bg-green-500 p-3 text-center rounded-lg text-yellow-200"
         >
           {showAvailableBooks ? "Show All Books" : "Show Available Books"}
         </button>
