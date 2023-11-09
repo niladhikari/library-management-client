@@ -99,7 +99,7 @@ const BookDetails = () => {
           <h2 className="text-xl font-bold">{name}</h2>
           <p className="font-bold text-red-600 text-xl">
             {" "}
-            Book : {parseInt(quantity)}
+            Book Available: {parseInt(quantity)}
           </p>
           <div className="flex gap-2">
             {/* {user?.email && (
@@ -109,8 +109,9 @@ const BookDetails = () => {
             )} */}
 
             {user?.email && (
-              <button disabled={buttonDisable || quantity <= 0}>
+              <button  disabled={buttonDisable? true:false}>
                 <BorrowModal bookInfo={bookInfo} onBorrow={handleBorrow} 
+                buttonDisable = {buttonDisable}
                 updateQuantity={setQuantity}/>
               </button>
             )}

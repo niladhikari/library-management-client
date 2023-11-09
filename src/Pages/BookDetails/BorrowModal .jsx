@@ -3,7 +3,7 @@ import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types, no-unused-vars
-const BorrowModal = ({ bookInfo, onBorrow, borrowed, updateQuantity }) => {
+const BorrowModal = ({ bookInfo, onBorrow, borrowed, updateQuantity,buttonDisable }) => {
   const [modalVisible, setModalVisible] = useState(false);
   // eslint-disable-next-line react/prop-types
   const { id, name, quantity, CategoryName, type, photo, email, names } =
@@ -44,7 +44,7 @@ const BorrowModal = ({ bookInfo, onBorrow, borrowed, updateQuantity }) => {
           icon: "success",
           confirmButtonText: "Cool",
         });
-        const updatedQuantity = quantity - 1; 
+        const updatedQuantity = quantity - 1;
         updateQuantity(updatedQuantity);
       }
     });
@@ -56,9 +56,13 @@ const BorrowModal = ({ bookInfo, onBorrow, borrowed, updateQuantity }) => {
 
   return (
     <div>
-      <button className="btn" onClick={showModal}>
-        Borrow
-      </button>
+      {quantity > 0 ? (
+        <button className={`btn ${buttonDisable?' cursor-not-allowed text-w': ''}`} onClick={showModal}>
+          Borrow
+        </button>
+      ) : (
+         <button disabled className="p-3 bg-green-400 text-black font-bold">Borrow</button>
+      )}
       {modalVisible && (
         <dialog className="modal" open>
           <div className="modal-box">
