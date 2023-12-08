@@ -16,3 +16,6 @@
 - The sixth feature of our system if the user goes to all books route then he can see all the books available. If the filter button is clicked, only those books whose quantity is greater than 0 will be displayed. And with each book there is an update button. If the update button is clicked, the user can change and update the book information.
 
 - The seventh feature of our system caters to user preferences by offering a dark mode option. Users can activate dark mode by clicking the button adjacent to the login button, which transforms the entire website into a dark theme for improved visibility in low-light conditions. Clicking the button again will return the website to its default, light mode. This feature is integrated into our comprehensive user authentication system, enhancing the overall user experience by allowing customization based on individual preferences.
+
+### Technologies used : 
+- Tailwind CSS, React, MongoDB, Node.js, Express.js, JWT token, Firebase, React Hook Form, Axios, TanStack Query.
