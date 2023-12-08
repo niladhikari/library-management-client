@@ -1,7 +1,7 @@
-## Project Name
+
 # [Live Link](https://papaya-figolla-810414.netlify.app/)
 
-## Least five  different features in this project is:
+## Least features in this project is:
  
 - Our project's standout feature is the Home Page, where users are initially greeted. This page acts as a central hub for all our Books Category, providing an easily accessible overview. Users can also explore our Discover Your Next Book and Most Popular Authors, all from this single, user-friendly location.
 
