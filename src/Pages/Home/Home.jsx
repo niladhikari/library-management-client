@@ -3,6 +3,7 @@ import DisplayCategory from "./DisplayCategory";
 import Banner from "../../Components/Layout/Banner";
 import Discover from "../../Components/Discover";
 import Authors from "../../Components/Authors";
+import Contact from "../../Components/Contact";
 
 const Home = () => {
   const categoryBook = useLoaderData();
@@ -43,6 +44,9 @@ const Home = () => {
         </h2>
         <div className="mt-10 mb-20">
           <Authors></Authors>
+        </div>
+        <div className="mt-10 mb-20">
+          <Contact></Contact>
         </div>
       </div>
     </div>
