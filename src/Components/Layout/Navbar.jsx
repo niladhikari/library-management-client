@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router-dom";
 // import useAuth from "./../../../Hook/useAuth";
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
-import { HashLink } from "react-router-hash-link";
 
 const links = (
   <>
@@ -19,7 +18,7 @@ const links = (
       <NavLink to="/borrowedbooks">Borrowed Books</NavLink>
     </li>
     <li>
-      <HashLink to={`#contact`}>Contact</HashLink>
+      <NavLink to={'/contact'}>Contact</NavLink>
     </li>
   </>
 );

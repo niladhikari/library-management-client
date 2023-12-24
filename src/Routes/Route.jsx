@@ -12,6 +12,7 @@ import BookDetails from "../Pages/BookDetails/BookDetails";
 import UpdateBook from "../Pages/UpdateBook/UpdateBook";
 import ReadBook from "../Pages/ReadBook/ReadBook";
 import Error from "../Pages/Error/Error";
+import Contact from "../Components/Contact";
 
 
 const router = createBrowserRouter([
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
             path: "/allbooks",
             element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
         },
+        {
+            path: "/contact",
+            element: <Contact></Contact>,
+        },
+
         {   
             path: '/update/:id',
             element: <PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>,
