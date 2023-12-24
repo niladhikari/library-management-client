@@ -1,15 +1,17 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
-import Rating from "react-rating-stars-component";
+
+// import Rating from "react-rating-stars-component";
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
 import { Link } from "react-router-dom";
 const AllBookCards = ({ book }) => {
-  const { _id, name, CategoryName, type, photo } = book;
+  const { _id, name, CategoryName, type, photo ,rating} = book;
 
-  const [rating, setRating] = useState(parseFloat(book.rating));
-  // console.log({ book, rating, x: typeof rating });
-  const handleRatingChange = (newRating) => {
-    setRating(newRating);
-  };
+  // const [rating, setRating] = useState(parseFloat(book.rating));
+  // // console.log({ book, rating, x: typeof rating });
+  // const handleRatingChange = (newRating) => {
+  //   setRating(newRating);
+  // };
   return (
     <div className="relative flex mx-4 lg:max-w-[24rem] flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
       <div className="relative m-0 overflow-hidden text-gray-700 bg-transparent rounded-none shadow-none bg-clip-border">
@@ -30,14 +32,7 @@ const AllBookCards = ({ book }) => {
           {type}
         </p>
         <div className="flex items-center justify-center font-normal ">
-          <Rating
-            count={5}
-            size={24}
-            value={rating}
-            edit={true}
-            isHalf={true}
-            onChange={handleRatingChange}
-          />
+        <Rating style={{ maxWidth: 120 }} value={rating} readOnly />
         </div>
       </div>
       <div className="flex items-center justify-center mb-4">
